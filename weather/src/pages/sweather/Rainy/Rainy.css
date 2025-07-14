@@ -1,0 +1,44 @@
+.rainy-container {
+  text-align: center;
+  padding: 1rem;
+  background-color: #e0f7fa;
+  border-radius: 12px;
+  box-shadow: 0 0 10px #81d4fa;
+}
+
+.rain {
+  margin: 0 auto;
+  width: 40px;
+  height: 60px;
+  position: relative;
+}
+
+.rain::before,
+.rain::after {
+  content: '';
+  position: absolute;
+  background-color: #2196f3;
+  width: 6px;
+  height: 16px;
+  border-radius: 3px;
+  animation: rainDrop 0.8s linear infinite;
+}
+
+.rain::after {
+  left: 20px;
+  animation-delay: 0.3s;
+}
+
+@keyframes rainDrop {
+  0% {
+    top: 0;
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    top: 60px;
+    opacity: 0;
+  }
+}

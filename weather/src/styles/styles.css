@@ -1,0 +1,50 @@
+:root {
+  /* 🎨 Colores base */
+  --primary-color: #4f46e5;      /* Indigo */
+  --primary-hover: #4338ca;
+  --secondary-color: #10b981;    /* Emerald */
+  --secondary-hover: #059669;
+  --button-text-color: #ffffff;
+
+  /* 💡 Estilos comunes */
+  --button-radius: 12px;
+  --button-padding: 12px 24px;
+  --button-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --transition-fast: 0.25s ease;
+}
+
+/* 🔵 Botón principal */
+.btn {
+  background-color: var(--primary-color);
+  color: var(--button-text-color);
+  padding: var(--button-padding);
+  border: none;
+  border-radius: var(--button-radius);
+  box-shadow: var(--button-shadow);
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.btn:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-2px);
+}
+
+/* 🟢 Botón secundario */
+.btn-secondary {
+  background-color: var(--secondary-color);
+  color: var(--button-text-color);
+  padding: var(--button-padding);
+  border: none;
+  border-radius: var(--button-radius);
+  box-shadow: var(--button-shadow);
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.btn-secondary:hover {
+  background-color: var(--secondary-hover);
+  transform: translateY(-2px);
+}

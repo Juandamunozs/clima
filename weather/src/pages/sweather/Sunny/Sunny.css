@@ -1,0 +1,22 @@
+.sunny-container {
+  text-align: center;
+  padding: 1rem;
+  background-color: #fffbe6;
+  border-radius: 12px;
+  box-shadow: 0 0 15px #ffdf33;
+}
+
+.sun {
+  margin: 0 auto;
+  width: 80px;
+  height: 80px;
+  background: radial-gradient(circle, #FFD700 60%, #FFA500);
+  border-radius: 50%;
+  animation: spin 5s linear infinite;
+  box-shadow: 0 0 20px 5px #FFD700;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

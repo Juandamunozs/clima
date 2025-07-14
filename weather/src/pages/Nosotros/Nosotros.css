@@ -1,0 +1,30 @@
+.nosotros-container {
+  min-height: 100vh;
+  padding: 60px 20px;
+  background: linear-gradient(135deg, #e0eafc, #cfdef3); /* fondo claro tipo cielo */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.nosotros-container h1 {
+  font-size: 2.8rem;
+  color: #2c3e50;
+  margin-bottom: 20px;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.nosotros-container p {
+  font-size: 1.2rem;
+  max-width: 600px;
+  color: #34495e;
+  line-height: 1.6;
+  background-color: #ffffffaa;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(2px);
+}

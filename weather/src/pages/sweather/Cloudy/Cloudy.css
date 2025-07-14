@@ -1,0 +1,48 @@
+.cloudy-container {
+  text-align: center;
+  padding: 1rem;
+  background-color: #eceff1;
+  border-radius: 12px;
+  box-shadow: 0 0 10px #90a4ae;
+}
+
+.cloud {
+  margin: 0 auto;
+  width: 100px;
+  height: 60px;
+  background: #cfd8dc;
+  border-radius: 50%;
+  position: relative;
+  animation: floatCloud 5s ease-in-out infinite;
+}
+
+.cloud::before,
+.cloud::after {
+  content: '';
+  position: absolute;
+  background: #cfd8dc;
+  border-radius: 50%;
+}
+
+.cloud::before {
+  width: 60px;
+  height: 60px;
+  top: -30px;
+  left: 10px;
+}
+
+.cloud::after {
+  width: 80px;
+  height: 80px;
+  top: -20px;
+  left: 40px;
+}
+
+@keyframes floatCloud {
+  0%, 100% {
+    transform: translateX(0px);
+  }
+  50% {
+    transform: translateX(10px);
+  }
+}
