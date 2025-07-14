@@ -1,32 +1,104 @@
 .rainy-container {
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+  color: #1347e3;
+  text-shadow: 0 0 3px rgba(12, 22, 216, 0.7);
+  max-width: 800px;
+  margin: 2rem auto;
   text-align: center;
-  padding: 1rem;
-  background-color: #e0f7fa;
-  border-radius: 12px;
-  box-shadow: 0 0 10px #81d4fa;
 }
 
-.rain {
-  margin: 0 auto;
-  width: 40px;
-  height: 60px;
+.rainy-sky {
   position: relative;
+  height: 120px;
+  margin-bottom: 1rem;
 }
 
-.rain::before,
-.rain::after {
+.rainy-cloud {
+  width: 120px;
+  height: 60px;
+  background: #cfd8dc;
+  border-radius: 50%;
+  position: absolute;
+  animation: floatCloud 6s ease-in-out infinite;
+}
+
+.rainy-cloud::before,
+.rainy-cloud::after {
   content: '';
   position: absolute;
-  background-color: #2196f3;
-  width: 6px;
-  height: 16px;
-  border-radius: 3px;
-  animation: rainDrop 0.8s linear infinite;
+  background: #cfd8dc;
+  border-radius: 50%;
 }
 
-.rain::after {
-  left: 20px;
+.rainy-cloud::before {
+  width: 60px;
+  height: 60px;
+  top: -30px;
+  left: 10px;
+}
+
+.rainy-cloud::after {
+  width: 80px;
+  height: 80px;
+  top: -20px;
+  left: 40px;
+}
+
+/* Posiciones de las nubes */
+.cloud-left {
+  left: 10%;
+  top: 10px;
+}
+
+.cloud-right {
+  right: 10%;
+  top: 30px;
+  animation-delay: 3s;
+}
+
+@keyframes floatCloud {
+
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+
+  50% {
+    transform: translateX(15px);
+  }
+}
+
+/* Gotas de lluvia */
+.raindrop {
+  position: absolute;
+  width: 6px;
+  height: 16px;
+  background-color: #2196f3;
+  border-radius: 3px;
+  animation: rainDrop 1s linear infinite;
+  opacity: 0;
+}
+
+.drop1 {
+  left: 30px;
+  animation-delay: 0s;
+}
+
+.drop2 {
+  left: 70px;
   animation-delay: 0.3s;
+}
+
+.drop3 {
+  left: 20px;
+  animation-delay: 0.5s;
+}
+
+.drop4 {
+  left: 80px;
+  animation-delay: 0.8s;
 }
 
 @keyframes rainDrop {
@@ -34,11 +106,19 @@
     top: 0;
     opacity: 0;
   }
-  50% {
+
+  10% {
     opacity: 1;
   }
+
   100% {
     top: 60px;
     opacity: 0;
   }
+}
+
+.city-list {
+  list-style: none;
+  padding-left: 0;
+  text-align: start;
 }

@@ -1,8 +1,7 @@
 :root {
-  /* 🎨 Colores base */
-  --primary-color: #4f46e5;      /* Indigo */
+  --primary-color: #4f46e5;
   --primary-hover: #4338ca;
-  --secondary-color: #10b981;    /* Emerald */
+  --secondary-color: #10b981;
   --secondary-hover: #059669;
   --button-text-color: #ffffff;
 

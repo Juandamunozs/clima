@@ -13,18 +13,28 @@ export default function Fog({ weatherData }) {
 
   return (
     <div className="fog-container">
-      <div className="fog"></div>
-      <h2>🌫️ Niebla </h2>
+      <div className="fog">
+        <div className="fog-cloud cloud-a"></div>
+        <div className="fog-cloud cloud-b"></div>
+        <div className="fog-cloud cloud-c"></div>
+        <div className="fog-cloud cloud-d"></div>
+      </div>
+      <h2>Niebla </h2>
       {fogData.length === 0 ? (
         <p>No data</p>
       ) : (
-        <ul>
+        <ul className="city-list">
           {fogData.map((item, index) => (
-            <li key={index}>
-              📍 <strong>{item.city} ({item.zone})</strong> - {item.department} - {item.country}
-              <br />
-              🌥️ <strong>Temperatura:</strong> {item.temperatura} &nbsp; - &nbsp;
-              <strong>Humedad:</strong> {item.humedad}
+            <li key={index} className="city-card">
+              <div className="city-header">
+                📍 <strong>{item.city} ({item.zone})</strong>
+              </div>
+              <div className="city-details">
+                🏛️ {item.department} – {item.country}
+                <br />
+                🌫️ <strong>Temperatura:</strong> {item.temperatura} &nbsp;&nbsp;|&nbsp;&nbsp;
+                💧 <strong>Humedad:</strong> {item.humedad}
+              </div>
             </li>
           ))}
         </ul>

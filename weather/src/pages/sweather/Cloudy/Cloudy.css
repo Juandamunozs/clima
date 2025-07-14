@@ -1,37 +1,82 @@
 .cloudy-container {
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+  color: #1347e3;
+  text-shadow: 0 0 3px rgba(12, 22, 216, 0.7);
+  max-width: 800px;
+  margin: 2rem auto;
   text-align: center;
-  padding: 1rem;
-  background-color: #eceff1;
-  border-radius: 12px;
-  box-shadow: 0 0 10px #90a4ae;
 }
 
-.cloud {
-  margin: 0 auto;
+.cloudy-sun {
+  position: relative;
+  margin: 0 auto 1rem;
+  width: 80px;
+  height: 80px;
+  background: radial-gradient(circle, #FFD700 60%, #FFA500);
+  border-radius: 50%;
+  box-shadow: 0 0 20px 5px #FFD700;
+  animation: none;
+}
+
+.cloudy-sun::before,
+.cloudy-sun::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 140px;
+  height: 140px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  border: 2px dashed rgba(255, 215, 0, 0.5);
+  animation: cloudy-rays 2s linear infinite;
+}
+
+.cloudy-sun::after {
+  animation-delay: 1s;
+}
+
+@keyframes cloudy-rays {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.6;
+  }
+
+  100% {
+    transform: translate(-50%, -50%) scale(1.5);
+    opacity: 0;
+  }
+}
+
+/* Nube flotante */
+.cloudy-cloud {
+  margin: -33px auto 2rem;
   width: 100px;
   height: 60px;
   background: #cfd8dc;
   border-radius: 50%;
   position: relative;
-  animation: floatCloud 5s ease-in-out infinite;
+  animation: floatCloud 6s ease-in-out infinite;
 }
 
-.cloud::before,
-.cloud::after {
+.cloudy-cloud::before,
+.cloudy-cloud::after {
   content: '';
   position: absolute;
   background: #cfd8dc;
   border-radius: 50%;
 }
 
-.cloud::before {
+.cloudy-cloud::before {
   width: 60px;
   height: 60px;
   top: -30px;
   left: 10px;
 }
 
-.cloud::after {
+.cloudy-cloud::after {
   width: 80px;
   height: 80px;
   top: -20px;
@@ -39,10 +84,26 @@
 }
 
 @keyframes floatCloud {
-  0%, 100% {
-    transform: translateX(0px);
+
+  0%,
+  100% {
+    transform: translateX(0);
   }
+
   50% {
-    transform: translateX(10px);
+    transform: translateX(15px);
   }
+}
+
+/* Espacio para sol y nube */
+.sky-elements {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.city-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+  text-align: start;
 }

@@ -1,13 +1,13 @@
-import './Loading.css';
+import './loading_circulo.css';
 
-function Loading() {
+function Loading_circulo() {
   return (
     <div className="three-body">
       <div className="three-body__dot"></div>
       <div className="three-body__dot"></div>
       <div className="three-body__dot"></div>
-    </div>
-  );
+    </div>);
+
 }
 
-export default Loading;
+export default Loading_circulo;

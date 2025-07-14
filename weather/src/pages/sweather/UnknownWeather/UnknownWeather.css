@@ -1,29 +1,45 @@
-.unknown-weather-card {
-  background-color: #f0f0f0;
-  border: 2px dashed #999;
-  padding: 1.5rem;
-  border-radius: 1rem;
+.unknown-weather-container {
   text-align: center;
-  color: #333;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-  max-width: 400px;
+  background-color: #f0f8ff;
+  position: relative;
+  overflow: hidden;
+  min-height: 200px;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+  color: #1347e3;
+  text-shadow: 0 0 3px rgba(12, 22, 216, 0.7);
+  max-width: 800px;
   margin: 2rem auto;
 }
 
-.unknown-weather-card h2 {
-  color: #555;
-  font-size: 1.8rem;
-  margin-bottom: 0.5rem;
+/* Contenedor de íconos en línea horizontal */
+.weather-icons-ring {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin: 2rem auto;
 }
 
-.unknown-weather-card p {
-  margin: 0.3rem 0;
-  font-size: 1rem;
+/* Íconos flotando uniformemente */
+.weather-icon {
+  font-size: 28px;
+  animation: floatIcon 2.5s ease-in-out infinite alternate;
 }
 
-.warning {
-  margin-top: 1rem;
-  color: #c00;
-  font-style: italic;
+/* Animación de flotación suave */
+@keyframes floatIcon {
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(-6px);
+  }
 }
 
+/* .weather-icon sun {
+  color: #f39c12;
+} */

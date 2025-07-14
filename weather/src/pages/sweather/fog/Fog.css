@@ -1,36 +1,93 @@
 .fog-container {
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+  color: #1347e3;
+  text-shadow: 0 0 3px rgba(12, 22, 216, 0.7);
+  max-width: 800px;
+  margin: 2rem auto;
   text-align: center;
-  padding: 1rem;
-  background-color: #e0e0e0;
-  border-radius: 12px;
-  box-shadow: 0 0 10px #9e9e9e;
+  background-color: #f2f4f5;
 }
 
 .fog {
-  margin: 1rem auto;
-  width: 120px;
-  height: 60px;
-  background: repeating-linear-gradient(
-    0deg,
-    rgba(200, 200, 200, 0.4),
-    rgba(200, 200, 200, 0.4) 5px,
-    rgba(255, 255, 255, 0.1) 10px
-  );
-  border-radius: 10px;
-  animation: moveFog 4s ease-in-out infinite;
+  position: relative;
+  height: 100px;
+  margin-bottom: 1.5rem;
 }
 
-@keyframes moveFog {
-  0% {
-    transform: translateX(0px);
-    opacity: 0.6;
-  }
-  50% {
-    transform: translateX(8px);
-    opacity: 0.9;
-  }
+.fog-cloud {
+  position: absolute;
+  width: 100px;
+  height: 60px;
+  background: #cfd8dc;
+  border-radius: 50%;
+  animation: fogFloat 8s ease-in-out infinite;
+}
+
+.fog-cloud::before,
+.fog-cloud::after {
+  content: "";
+  position: absolute;
+  background: #cfd8dc;
+  border-radius: 50%;
+}
+
+.fog-cloud::before {
+  width: 60px;
+  height: 60px;
+  top: -20px;
+  left: 10px;
+}
+
+.fog-cloud::after {
+  width: 80px;
+  height: 80px;
+  top: -10px;
+  left: 40px;
+}
+
+.cloud-a {
+  left: 10%;
+  top: 10px;
+  animation-delay: 0s;
+}
+
+.cloud-b {
+  left: 40%;
+  top: 20px;
+  animation-delay: 2s;
+}
+
+.cloud-c {
+  left: 70%;
+  top: 15px;
+  animation-delay: 4s;
+}
+
+.cloud-d {
+  left: -10%;
+  top: 5px;
+  animation-delay: 1s;
+}
+
+
+@keyframes fogFloat {
+
+  0%,
   100% {
-    transform: translateX(0px);
-    opacity: 0.6;
+    transform: translateX(0);
+    opacity: 0.5;
   }
+
+  50% {
+    transform: translateX(15px);
+    opacity: 0.8;
+  }
+}
+
+.city-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
 }

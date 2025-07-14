@@ -1,22 +1,57 @@
 .sunny-container {
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+  color: #1347e3;
+  text-shadow: 0 0 3px rgba(12, 22, 216, 0.7);
+  max-width: 800px;
+  margin: 2rem auto;
   text-align: center;
-  padding: 1rem;
-  background-color: #fffbe6;
-  border-radius: 12px;
-  box-shadow: 0 0 15px #ffdf33;
 }
 
 .sun {
-  margin: 0 auto;
+  position: relative;
+  margin: 0 auto 1rem;
   width: 80px;
   height: 80px;
   background: radial-gradient(circle, #FFD700 60%, #FFA500);
   border-radius: 50%;
-  animation: spin 5s linear infinite;
   box-shadow: 0 0 20px 5px #FFD700;
 }
 
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+/* Rayos solares usando pseudo-elementos */
+.sun::before,
+.sun::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 140px;
+  height: 140px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  border: 2px dashed rgba(255, 215, 0, 0.5);
+  animation: rays 2s linear infinite;
+}
+
+.sun::after {
+  animation-delay: 1s;
+}
+
+@keyframes rays {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.6;
+  }
+
+  100% {
+    transform: translate(-50%, -50%) scale(1.5);
+    opacity: 0;
+  }
+}
+
+.city-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
 }

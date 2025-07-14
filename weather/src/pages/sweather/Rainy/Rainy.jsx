@@ -15,18 +15,32 @@ export default function Rainy({ weatherData }) {
 
   return (
     <div className="rainy-container">
-      <div className="rain"></div>
-      <h2>🌧️ LLuvia</h2>
+      <div className="rainy-sky">
+        <div className="rainy-cloud cloud-left">
+          <span className="raindrop drop1"></span>
+          <span className="raindrop drop2"></span>
+        </div>
+        <div className="rainy-cloud cloud-right">
+          <span className="raindrop drop3"></span>
+          <span className="raindrop drop4"></span>
+        </div>
+      </div>
+      <h2>Lluvia</h2>
       {rainyData.length === 0 ? (
-        <p>No data</p>
+        <p className="no-data">No hay datos disponibles.</p>
       ) : (
-        <ul>
+        <ul className="city-list">
           {rainyData.map((item, index) => (
-            <li key={index}>
-              📍 <strong>{item.city} ({item.zone})</strong> - {item.department} - {item.country}
-              <br />
-              🌥️ <strong>Temperatura:</strong> {item.temperatura} &nbsp; - &nbsp;
-              <strong>Humedad:</strong> {item.humedad}
+            <li key={index} className="city-card">
+              <div className="city-header">
+                📍 <strong>{item.city} ({item.zone})</strong>
+              </div>
+              <div className="city-details">
+                🏛️ {item.department} – {item.country}
+                <br />
+                🌧️ <strong>Temperatura:</strong> {item.temperatura} &nbsp;&nbsp;|&nbsp;&nbsp;
+                💧 <strong>Humedad:</strong> {item.humedad}
+              </div>
             </li>
           ))}
         </ul>

@@ -1,5 +1,5 @@
 export async function getClima() {
-  const clima = await getLocation(); 
+  const clima = await getLocation();
   const { lat, lng } = clima;
 
   if (lat === null || lng === null) {
@@ -17,7 +17,7 @@ export async function getClima() {
 
   const [descripcion, temperatura, humedad] = text.split('|');
 
-  return { descripcion, temperatura, humedad, city, country, neighbourhood, department, zone};
+  return { descripcion, temperatura, humedad, city, country, neighbourhood, department, zone };
 }
 
 function getLocation() {
@@ -72,8 +72,8 @@ async function getCity(lat, lng) {
       city: addr.county || addr.city || addr.town || addr.village || 'Desconocida',
       country: addr.country || 'Desconocido',
       neighbourhood: addr.neighbourhood || 'Desconocido',
-      department: addr.state || 'Desconocido',         
-      zone: addr.state_district || 'Desconocida'        
+      department: addr.state || 'Desconocido',
+      zone: addr.state_district || 'Desconocida'
     };
   } catch (error) {
     console.error('Error obteniendo datos de ciudad:', error.message);
@@ -86,4 +86,3 @@ async function getCity(lat, lng) {
     };
   }
 }
-

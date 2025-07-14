@@ -16,18 +16,27 @@ export default function Cloudy({ weatherData }) {
 
   return (
     <div className="cloudy-container">
-      <div className="cloud"></div>
-      <h2>☁️ Parcialmente nublado</h2>
+      <div className="sky-elements">
+        <div className="cloudy-sun"></div>
+        <div className="cloudy-cloud"></div>
+      </div>
+
+      <h2>Parcialmente Nublado</h2>
       {cloudyData.length === 0 ? (
-        <p>No data</p>
+        <p className="no-data">No hay datos disponibles.</p>
       ) : (
-        <ul>
+        <ul className="city-list">
           {cloudyData.map((item, index) => (
-            <li key={index}>
-              📍 <strong>{item.city} ({item.zone})</strong> - {item.department} - {item.country}
-              <br />
-              🌥️ <strong>Temperatura:</strong> {item.temperatura} &nbsp; - &nbsp;
-              <strong>Humedad:</strong> {item.humedad}
+            <li key={index} className="city-card">
+              <div className="city-header">
+                📍 <strong>{item.city} ({item.zone})</strong>
+              </div>
+              <div className="city-details">
+                🏛️ {item.department} – {item.country}
+                <br />
+                🌥️ <strong>Temperatura:</strong> {item.temperatura} &nbsp;&nbsp;|&nbsp;&nbsp;
+                💧 <strong>Humedad:</strong> {item.humedad}
+              </div>
             </li>
           ))}
         </ul>
