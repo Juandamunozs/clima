@@ -1,12 +1,12 @@
-import Sunny from '../sweather/Sunny/Sunny';
-import Rainy from '../sweather/Rainy/Rainy';
-import Cloudy from '../sweather/Cloudy/Cloudy';
-import UnknownWeather from '../sweather/UnknownWeather/UnknownWeather'
-import Loading_nube from '../../components/common/loading/Loading_nube';
-import Fog from '../sweather/Fog/Fog';
-import Snow from '../sweather/Snow/Snow';
+import Sunny from '../Weather/Sunny/Sunny';
+import Rainy from '../Weather/Rainy/Rainy';
+import Cloudy from '../Weather/Cloudy/Cloudy';
+import UnknownWeather from '../Weather/UnknownWeather/UnknownWeather'
+import Fog from '../Weather/Fog/Fog';
+import Snow from '../Weather/Snow/Snow';
 import { useEffect, useState } from 'react';
 import { getClima } from '../../api/weatherAPI';
+import Loading_nube from '../../components/common/loading/Loading_nube';
 import './Clima.css';
 
 function Clima() {
