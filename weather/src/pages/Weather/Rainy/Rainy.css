@@ -136,3 +136,9 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   text-transform: capitalize; 
 }
+
+.weather-description,
+.city-header,
+.city-details {
+  color: #1d17c4;
+}

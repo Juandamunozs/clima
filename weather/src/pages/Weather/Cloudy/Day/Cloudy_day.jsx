@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
-import './Cloudy.css';
+import './Cloudy_day.css';
 
-export default function Cloudy({ weatherData }) {
+export default function CloudyDay({ weatherData }) {
   const [cloudyData, setCloudyData] = useState([]);
 
   useEffect(() => {
@@ -43,8 +43,11 @@ export default function Cloudy({ weatherData }) {
               <div className="city-details">
                 🏛️ {item.department} – {item.country}
                 <br />
-                🌡️ <strong>Temperatura:</strong> {item.temperatura} &nbsp;&nbsp;|&nbsp;&nbsp;
+                ⛅ <strong>Temperatura:</strong> {item.temperatura} &nbsp;&nbsp;|&nbsp;&nbsp;
                 💧 <strong>Humedad:</strong> {item.humedad}
+                <br />
+                ⌛️<strong>Periodo:</strong> {item.dayPeriod === "Dia" ? "🌞 Día" : "🌙 Noche"} &nbsp;&nbsp;|&nbsp;&nbsp;
+                🕐<strong>Hora:</strong> {item.dayPeriod === "Dia" ? item.now + " AM" : item.now + " PM"}
               </div>
             </li>
           ))}

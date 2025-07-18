@@ -1,0 +1,92 @@
+.cloudy-night-container {
+  background: #ffffff;
+  color: #1d17c4;
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.sky-elements-night {
+  position: relative;
+  height: 120px;
+  margin-bottom: 1.5rem;
+}
+
+.cloudy-moon::after {
+  content: "";
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  background: #fdfdfd;
+  border-radius: 50%;
+  left: 15px;
+  top: 0;
+}
+
+@keyframes cloud-move {
+  0% {
+    transform: translateX(0);
+  }
+
+  50% {
+    transform: translateX(20px);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.cloudy-moon {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  background: #f2b47b;
+  border-radius: 50%;
+  left: 35%;
+  top: 20px;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.cloudy-cloud-night {
+  width: 100px;
+  height: 60px;
+  background: linear-gradient(to right, #d4c04f, #aaa);
+  border-radius: 60% 40% 40% 60% / 60% 40% 60% 40%;
+  position: absolute;
+  top: 50px;
+  left: 80px;
+  z-index: 1;
+  box-shadow:
+    25px 0 #d4c04f,
+    50px 0 #d4c04f;
+  animation: cloud-move 6s ease-in-out infinite;
+}
+
+.city-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.city-card {
+  background: rgba(0, 0, 0, 0.03);
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.no-data {
+  text-align: center;
+  color: #555;
+  font-size: 1rem;
+}
+
+.weather-description,
+.city-header,
+.city-details {
+  color: #1d17c4;
+}

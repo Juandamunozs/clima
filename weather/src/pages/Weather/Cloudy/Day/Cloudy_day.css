@@ -50,7 +50,6 @@
   }
 }
 
-/* Nube flotante */
 .cloudy-cloud {
   margin: -33px auto 2rem;
   width: 100px;
@@ -95,7 +94,6 @@
   }
 }
 
-/* Espacio para sol y nube */
 .sky-elements {
   text-align: center;
   margin-bottom: 1rem;
@@ -120,4 +118,10 @@
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   text-transform: capitalize; 
+}
+
+.weather-description,
+.city-header,
+.city-details {
+  color: #1d17c4;
 }

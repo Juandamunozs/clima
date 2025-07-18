@@ -1,0 +1,4 @@
+# Redirige todas las rutas al index.html (para SPA como React) solo para netlify
+ /*    /index.html   200
+
+

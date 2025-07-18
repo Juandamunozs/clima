@@ -1,4 +1,4 @@
-export async function getClima() {
+export async function getWeather() {
   const clima = await getLocation();
   const { lat, lng } = clima;
 
@@ -7,6 +7,10 @@ export async function getClima() {
   }
 
   const data = await getCity(lat, lng);
+  const time = await verifyTime(lat, lng);
+
+  const { sunrise, sunset, now, dayPeriod} = time;
+
   const { city, country, neighbourhood, department, zone } = data;
 
   const BASE_URL = `https://wttr.in/${lat},${lng}?format=%C|%t|%h`;
@@ -17,7 +21,7 @@ export async function getClima() {
 
   const [descripcion, temperatura, humedad] = text.split('|');
 
-  return { descripcion, temperatura, humedad, city, country, neighbourhood, department, zone };
+  return { descripcion, temperatura, humedad, city, country, neighbourhood, department, zone, sunrise, sunset, now, dayPeriod};
 }
 
 function getLocation() {
@@ -83,6 +87,38 @@ async function getCity(lat, lng) {
       neighbourhood: 'Desconocido',
       department: 'Desconocido',
       zone: 'Desconocida'
+    };
+  }
+}
+
+async function verifyTime(lat, lng) {
+  try {
+    const response = await fetch(`https://api.sunrise-sunset.org/json?lat=${lat}&lng=${lng}&formatted=0`);
+    const data = await response.json();
+
+    console.log('Datos de hora solar:', data);
+
+    const sunrise = new Date(data.results.sunrise);
+    const sunset = new Date(data.results.sunset);
+    const ahora = new Date();
+
+    console.log(`Amanecer: ${sunrise.toLocaleTimeString()}, Atardecer: ${sunset.toLocaleTimeString()}, Ahora: ${ahora.toLocaleTimeString()}`);
+
+    const esDeDia = ahora >= sunrise && ahora <= sunset;
+
+    return {
+      sunrise: sunrise.toLocaleTimeString(),
+      sunset: sunset.toLocaleTimeString(),
+      now: ahora.toLocaleTimeString(),
+      dayPeriod: esDeDia ? 'Dia' : 'Noche',
+    };
+  } catch (error) {
+    console.error('Error verificando hora solar:', error.message);
+    return {
+      sunrise: 'Desconocido',
+      sunset: 'Desconocido',
+      now: new Date().toLocaleTimeString(),
+      dayPeriod: null
     };
   }
 }
