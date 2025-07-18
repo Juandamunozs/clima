@@ -6,7 +6,9 @@ export default function Fog({ weatherData }) {
 
   useEffect(() => {
     const filtered = weatherData.filter(item =>
-      ['fog', 'mist', 'niebla'].includes(item.descripcion.toLowerCase().trim())
+      ['fog', 
+        'mist', 
+        'niebla'].includes(item.descripcion.toLowerCase().trim())
     );
     setFogData(filtered);
   }, [weatherData]);
@@ -19,13 +21,15 @@ export default function Fog({ weatherData }) {
         <div className="fog-cloud cloud-c"></div>
         <div className="fog-cloud cloud-d"></div>
       </div>
-      <h2>Niebla </h2>
       {fogData.length === 0 ? (
-        <p>No data</p>
+        <p>No hay datos disponibles.</p>
       ) : (
         <ul className="city-list">
           {fogData.map((item, index) => (
             <li key={index} className="city-card">
+              <div className="weather-description">
+                <em>{item.descripcion}</em>
+              </div>
               <div className="city-header">
                 📍 <strong>{item.city} ({item.zone})</strong>
               </div>

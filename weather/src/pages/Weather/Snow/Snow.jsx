@@ -6,7 +6,9 @@ export default function Snow({ weatherData }) {
 
   useEffect(() => {
     const filtered = weatherData.filter(item =>
-      ['snow', 'nieve'].includes(item.descripcion.toLowerCase().trim())
+      ['snow',
+        'nieve',
+        'lluvia  moderada a intervalos'].includes(item.descripcion.toLowerCase().trim())
     );
     setSnowData(filtered);
   }, [weatherData]);
@@ -18,13 +20,15 @@ export default function Snow({ weatherData }) {
           <div className="snowflake" key={i}>❄</div>
         ))}
       </div>
-      <h2>Nevando</h2>
       {snowData.length === 0 ? (
-        <p>No data</p>
+        <p>No hay datos disponibles.</p>
       ) : (
         <ul className="city-list">
           {snowData.map((item, index) => (
             <li key={index} className="city-card">
+              <div className="weather-description">
+                <em>{item.descripcion}</em>
+              </div>
               <div className="city-header">
                 📍 <strong>{item.city} ({item.zone})</strong>
               </div>

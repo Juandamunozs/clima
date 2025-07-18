@@ -5,9 +5,12 @@ export default function Sunny({ weatherData }) {
 
   useEffect(() => {
     const filtered = weatherData.filter(item =>
-      ['sunny', 'soleado', 'clear', 'despejado'].includes(
-        item.descripcion.toLowerCase().trim()
-      )
+      ['sunny',
+        'soleado',
+        'clear',
+        'despejado'].includes(
+          item.descripcion.toLowerCase().trim()
+        )
     );
     setSunnyData(filtered);
   }, [weatherData]);
@@ -15,13 +18,15 @@ export default function Sunny({ weatherData }) {
   return (
     <div className="sunny-container">
       <div className="sun"></div>
-      <h2>Soleado</h2>
       {sunnyData.length === 0 ? (
-        <p>No data</p>
+        <p>No hay datos disponibles.</p>
       ) : (
         <ul className="city-list">
           {sunnyData.map((item, index) => (
             <li key={index} className="city-card">
+              <div className="weather-description">
+                <em>{item.descripcion}</em>
+              </div>
               <div className="city-header">
                 📍 <strong>{item.city} ({item.zone})</strong>
               </div>

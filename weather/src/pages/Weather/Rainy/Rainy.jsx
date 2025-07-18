@@ -6,7 +6,12 @@ export default function Rainy({ weatherData }) {
 
   useEffect(() => {
     const filtered = weatherData.filter(item =>
-      ['rain', 'lluvia', 'lluvia ligera', 'lluvia fuerte', 'tormenta', 'thunderstorm'].includes(
+      ['rain', 'lluvia', 
+        'lluvia ligera', 
+        'lluvia fuerte', 
+        'tormenta', 
+        'thunderstorm', 
+        'lluvia  moderada a intervalos'].includes(
         item.descripcion.toLowerCase().trim()
       )
     );
@@ -25,13 +30,15 @@ export default function Rainy({ weatherData }) {
           <span className="raindrop drop4"></span>
         </div>
       </div>
-      <h2>Lluvia</h2>
       {rainyData.length === 0 ? (
         <p className="no-data">No hay datos disponibles.</p>
       ) : (
         <ul className="city-list">
           {rainyData.map((item, index) => (
             <li key={index} className="city-card">
+              <div className="weather-description">
+                <em>{item.descripcion}</em>
+              </div>
               <div className="city-header">
                 📍 <strong>{item.city} ({item.zone})</strong>
               </div>

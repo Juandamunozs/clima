@@ -14,7 +14,9 @@ function UnknownWeather({ weatherData }) {
         <span className="weather-icon fog">🌫️</span>
         <span className="weather-icon wind">💨</span>
       </div>
-      <h2>Clima desconocido</h2>
+      <div className="weather-description">
+        <em>Clima desconocido</em>
+      </div>
       <ul className="city-list">
         {weatherData.map((item, index) => (
           <li key={index} className="city-card">

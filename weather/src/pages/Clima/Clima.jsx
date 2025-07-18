@@ -16,7 +16,6 @@ function Clima() {
     async function fetchClima() {
       try {
         const climaData = await getClima();
-        console.log('Clima:', climaData);
         setWeather(climaData); 
       } catch (error) {
         console.error('Error cargando clima:', error);
@@ -36,6 +35,7 @@ function Clima() {
 
   const renderWeatherComponent = () => {
     const desc = weather.descripcion.toLowerCase();
+    // const desc = 'niebla' // Testing
     const temperatura = weather.temperatura.replace('+', '');
 
     const weatherClima = {
@@ -43,6 +43,8 @@ function Clima() {
       descripcion: desc,
       temperatura,
     };
+
+   console.log('weatherClima', weatherClima);
 
     if (['sunny', 'soleado', 'clear', 'despejado'].includes(desc)) {
       return <Sunny weatherData={[weatherClima]} />;
@@ -60,7 +62,7 @@ function Clima() {
       ['light rain', 'lluvia ligera',
         'heavy rain', 'lluvia fuerte',
         'rain', 'lluvia',
-        'thunderstorm', 'tormenta'].includes(desc)
+        'thunderstorm', 'tormenta', 'lluvia  moderada a intervalos'].includes(desc)
     ) {
       return <Rainy weatherData={[weatherClima]} />;
     }
