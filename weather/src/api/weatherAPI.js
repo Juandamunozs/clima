@@ -24,27 +24,44 @@ export async function getWeather() {
   return { descripcion, temperatura, humedad, city, country, neighbourhood, department, zone, sunrise, sunset, now, dayPeriod};
 }
 
-function getLocation() {
-  return new Promise((resolve, reject) => {
+async function getLocation() {
+  const gpsLocation = await new Promise(resolve => {
     if (!navigator.geolocation) {
-      console.log("GPS no disponible o denegado");
-      return resolve({ lat: null, lng: null, accuracy: null });
+      return resolve(null);
     }
 
     navigator.geolocation.getCurrentPosition(
       position => {
-        const lat = position.coords.latitude;
-        const lng = position.coords.longitude;
-        const accuracy = position.coords.accuracy;
-        console.log(`${lat},${lng} Precisión: ${accuracy} mts`);
-        resolve({ lat, lng, accuracy });
+        resolve({
+          lat: position.coords.latitude,
+          lng: position.coords.longitude,
+          accuracy: position.coords.accuracy,
+          source: "gps"
+        });
       },
       error => {
-        console.error("Error al obtener la ubicación:", error.message);
-        resolve({ lat: null, lng: null, accuracy: null });
-      }
+        console.warn("GPS falló:", error.message);
+        resolve(null);
+      },
+      { timeout: 7000 } 
     );
   });
+
+  if (gpsLocation) return gpsLocation;
+
+  try {
+    const res = await fetch("https://ipapi.co/json/");
+    const data = await res.json();
+    return {
+      lat: data.latitude,
+      lng: data.longitude,
+      accuracy: 5000, 
+      source: "ip"
+    };
+  } catch (err) {
+    console.error("No se pudo obtener la ubicación por IP", err);
+    return { lat: null, lng: null, accuracy: null, source: "none" };
+  }
 }
 
 async function getCity(lat, lng) {

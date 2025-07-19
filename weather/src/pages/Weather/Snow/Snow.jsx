@@ -38,8 +38,8 @@ export default function Snow({ weatherData }) {
                 ❄️ <stong>Temperatura:</stong> {item.temperatura} &nbsp;&nbsp;|&nbsp;&nbsp;
                 💧 <strong>Humedad:</strong> {item.humedad}
                 <br />
-                ⌛️<strong>Periodo:</strong> {item.dayPeriod === "Dia" ? "🌞 Día" : "🌙 Noche"} &nbsp;&nbsp;|&nbsp;&nbsp;
-                🕐<strong>Hora:</strong> {item.dayPeriod === "Dia" ? item.now + " AM" : item.now + " PM"}
+                ⌛️ <strong>Periodo:</strong> {item.dayPeriod === "Dia" ? "🌞 Día" : "🌙 Noche"} &nbsp;&nbsp;|&nbsp;&nbsp;
+                🕐 <strong>Hora:</strong> {item.now}
               </div>
             </li>
           ))}
