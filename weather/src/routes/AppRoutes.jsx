@@ -8,7 +8,8 @@ import Clima from '../pages/Clima/Clima';
 export default function AppRoutes() {
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
+      {/* <Route path="/" element={<Home />} /> */}
+      <Route path="/" element={<Clima />} />
       <Route path="/nosotros" element={<Nosotros />} />
       <Route path="/clima" element={<Clima />} />
     </Routes>

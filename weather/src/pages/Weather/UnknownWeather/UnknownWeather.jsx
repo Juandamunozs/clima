@@ -14,12 +14,13 @@ function UnknownWeather({ weatherData }) {
         <span className="weather-icon fog">🌫️</span>
         <span className="weather-icon wind">💨</span>
       </div>
-      <div className="weather-description">
-        <em>Clima desconocido</em>
-      </div>
+      <h2>❓</h2>
       <ul className="city-list">
         {weatherData.map((item, index) => (
           <li key={index} className="city-card">
+            <div className="weather-description">
+              <em>{item.descripcion}</em>
+            </div>
             <div className="city-header">
               📍 <strong>{item.city} ({item.zone})</strong>
             </div>
