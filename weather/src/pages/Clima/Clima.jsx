@@ -34,7 +34,6 @@ function Clima() {
     );
   }
 
-
   const renderWeatherComponent = () => {
     const desc = weather.descripcion.toLowerCase();
     const dayPeriod = weather.dayPeriod || 'Desconocido';
@@ -50,6 +49,8 @@ function Clima() {
       temperatura,
       dayPeriod: dayPeriod,
     };
+
+    console.log('weatherClima', weatherClima);
 
     if (['sunny', 'soleado', 'clear', 'despejado'].includes(desc)) {
       return <Sunny weatherData={[weatherClima]} />;
@@ -73,7 +74,9 @@ function Clima() {
       ['light rain', 'lluvia ligera',
         'heavy rain', 'lluvia fuerte',
         'rain', 'lluvia',
-        'thunderstorm', 'tormenta', 'lluvia  moderada a intervalos'].includes(desc)
+        'thunderstorm', 'tormenta',
+        'lluvia  moderada a intervalos', 
+        'llovizna a intervalos'].includes(desc)
     ) {
       return <Rainy weatherData={[weatherClima]} />;
     }

@@ -6,14 +6,15 @@ export default function Rainy({ weatherData }) {
 
   useEffect(() => {
     const filtered = weatherData.filter(item =>
-      ['rain', 'lluvia', 
-        'lluvia ligera', 
-        'lluvia fuerte', 
-        'tormenta', 
-        'thunderstorm', 
-        'lluvia  moderada a intervalos'].includes(
-        item.descripcion.toLowerCase().trim()
-      )
+      ['rain', 'lluvia',
+        'lluvia ligera',
+        'lluvia fuerte',
+        'tormenta',
+        'thunderstorm',
+        'lluvia  moderada a intervalos',
+        'llovizna a intervalos'].includes(
+          item.descripcion.toLowerCase().trim()
+        )
     );
     setRainyData(filtered);
   }, [weatherData]);
